@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Accounting Principles — Chapters 1 &amp; 2 Interactive Exam</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f8f8;--card:#fff;--tx:#1b2a2a;--mut:#5c6b6b;--bd:#d5dede;--pri:#2f6f6a;--ok:#1f8a4c;--okb:#e3f5ea;--no:#c0392b;--nob:#fbe7e4;--warn:#fff6dd}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121818;--card:#1b2424;--tx:#e6eeee;--mut:#9db0b0;--bd:#324040;--pri:#5fb3ab;--ok:#5fd08c;--okb:#173a27;--no:#ff8b7d;--nob:#40201c;--warn:#3a3418}}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:900px;margin:0 auto;padding:16px}
+h1{font-size:22px;margin:0 0 4px}.sub{color:var(--mut);font-size:13px;margin-bottom:12px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.b{padding:5px 10px;border-radius:8px;font-weight:600;font-size:14px;background:var(--card);border:1px solid var(--bd)}
+.sc{background:var(--okb);color:var(--ok)}.ic{background:var(--warn)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+button,select,input[type=text]{font:inherit;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:7px 12px;cursor:pointer}
+.tab.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.row input{flex:1;min-width:180px;cursor:text}
+.q{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px}
+.q.ok{border-color:var(--ok)}.q.no{border-color:var(--no)}
+.tag{font-size:12px;color:var(--mut);margin-bottom:4px}.qt{font-weight:600;margin-bottom:10px;white-space:pre-line}
+.o{display:block;width:100%;text-align:left;margin:6px 0;padding:9px 12px}
+.o.sel{border-color:var(--pri);box-shadow:0 0 0 2px var(--pri) inset}
+.o.right{background:var(--okb);border-color:var(--ok);color:var(--ok)}
+.o.wrong{background:var(--nob);border-color:var(--no);color:var(--no)}
+.n{margin-top:8px;font-size:13px;color:var(--mut);white-space:pre-line}
+.num{display:flex;gap:8px;flex-wrap:wrap}.num input{width:160px}
+.pri{background:var(--pri);color:#fff;border-color:var(--pri)}
+.emp{text-align:center;color:var(--mut);padding:30px}
+</style></head><body><div class="w">
+<h1>Accounting Principles — Chapters 1 &amp; 2 Exam</h1>
+<div class="sub">Ch1: all slide questions, answers from your answer sheet (Q15 set to Correct) · Ch2: questions written from the slide examples · split by section</div>
+<div class="bar"><span class="b ic" id="cnt"></span><span class="b" id="ans"></span><span class="b sc" id="scr"></span>
+<label class="b ic"><input type="checkbox" id="inst" checked> Instant Check</label></div>
+<div class="tabs" id="tabs"></div>
+<div class="row"><input type="text" id="q" placeholder="Search question text or options…">
+<select id="show"><option value="all">Show: All Questions</option><option value="un">Unanswered</option><option value="ok">Correct</option><option value="no">Wrong</option></select>
+<button id="shuf">Shuffle Order</button><button id="grade" class="pri">Grade all</button><button id="rst">Reset</button></div>
+<div id="list"></div></div>
+<script>
+const SEC=["Ch1 · Slides 14–15 · T/F","Ch1 · Slide 26 · T/F","Ch1 · Slides 28–32 · MCQ","Ch1 · Slides 39–49 · MCQ","Ch1 · Slides 60–62 · T/F","Ch1 · Slides 63–67 · MCQ","Ch1 · Worked Problems","Ch2 · Financial Position & Principles","Ch2 · Equation Transactions","Ch2 · Income Statement & Principles","Ch2 · Comprehensive Problems"];
+const Q=[];
+const T=(s,t,a,n)=>Q.push({s,t,tf:1,o:["Correct ✓","Incorrect ✗"],a:a?0:1,n});
+const M=(s,t,o,a,n)=>Q.push({s,t,o,a,n});
+const N=(s,t,a,n)=>Q.push({s,t,num:1,a,n});
+// Slides 14–15
+[["The sole purpose of the accounting is to determine the profit or loss of the project.",0],["One of the objectives of the accounting is to determine the profit or loss of the project.",1],["The terms rights and resources are the assets of the enterprise.",1],["The terms obligations and debts are the liabilities of the enterprise.",1],["Accounting is concerned with all transactions, financial or non-financial.",0],["Accounting is concerned with non-financial transactions only.",0],["Profit or loss = expenses − revenues.",0],["Profit or loss = revenues − expenses.",1],["Profit or loss = expenses + revenues.",0],["Profit or loss = revenues + expenses.",0],["Accounting is concerned with financial transactions only.",1],["The assets and liabilities of the entity are determined by the income statement.",0],["The profit or loss of the enterprise is determined by the statement of cash flows.",0],["Cash in and cash out of the entity is determined by the statement of owner’s equity.",0],["The rights of the owner of the entity are determined by the statement of financial position.",1,"Set to Correct as you specified (Owner’s equity is shown on the statement of financial position)."]].forEach(x=>T(0,x[0],x[1],x[2]));
+// Slide 26
+[["Furniture is one of the assets.",1],["Accounts receivable are current assets.",1],["Accounts payable is one of the current liabilities.",1],["There is no difference between the advanced (prepaid) expenses and the expenses payable.",0],["There is no difference between the advanced (prepaid) revenues and the revenues receivable (accrued revenues).",0],["Entity assets − entity liabilities = net assets.",1],["Equity = owner’s equity.",1],["Owners’ equity = assets − liabilities.",1],["Liabilities = assets − owners’ equity.",1],["Assets = liabilities + owners’ equity (basic accounting equation).",1]].forEach(x=>T(1,x[0],x[1]));
+// Slides 28–32
+M(2,"Which of the following correctly represents the basic accounting equation?",["Assets = liabilities + owner’s equity.","Assets = owner’s equity.","Assets = liabilities − owner’s equity.","Assets + liabilities = owner’s equity."],0);
+M(2,"Which of these items is an expense?",["Bank loan.","Owner’s equity.","Land.","Current period’s rent."],3);
+M(2,"Which of the following would not be included on the balance sheet?",["Accounts receivable.","Accounts payable.","Sales.","Cash."],2);
+const C1="Data: machines & equipment 10,000; land & buildings 80,000; accounts receivable 30,000; inventory 40,000; long-term loans 20,000; accounts payable 25,000; expenses payable 10,000 (EGP).\n";
+const nn=(c)=>c.concat(["None of the above"]);
+[["Total assets equal:",["160,000 EGP","140,000 EGP","180,000 EGP"],0,"10,000 + 80,000 + 30,000 + 40,000 = 160,000"],
+["Total liabilities equal:",["45,000 EGP","55,000 EGP","160,000 EGP"],1,"20,000 + 25,000 + 10,000 = 55,000"],
+["Total fixed assets equal:",["80,000 EGP","70,000 EGP","90,000 EGP"],2,"Machines 10,000 + land & buildings 80,000 = 90,000"],
+["Total current assets equal:",["80,000 EGP","70,000 EGP","90,000 EGP"],1,"A/R 30,000 + inventory 40,000 = 70,000"],
+["Long-term liabilities equal:",["40,000 EGP","20,000 EGP","30,000 EGP"],1,"Long-term loans = 20,000"],
+["Current liabilities equal:",["50,000 EGP","40,000 EGP","35,000 EGP"],2,"25,000 + 10,000 = 35,000"],
+["Net assets equal:",["15,000 EGP","30,000 EGP","45,000 EGP"],3,"160,000 − 55,000 = 105,000 (none of the above)"],
+["Owner’s equity equals:",["10,000 EGP","20,000 EGP","40,000 EGP"],3,"Same as net assets = 105,000 (none of the above)"]].forEach(x=>M(2,C1+x[0],nn(x[1]),x[2],x[3]));
+// Slides 39–49
+const A=["Assets","Liabilities","Owner’s equity","Expenses","Revenues"];
+M(3,"One of the assets:",["Machines","Accounts payable","Loans","Income"],0);
+M(3,"One of the liabilities:",["Machines","Accounts receivable","Loans","Income"],2);
+M(3,"One of the owner’s equity:",["Capital","Accounts payable","Loans","Buildings"],0);
+M(3,"One of the expenses:",["Advertising","Accounts payable","Loans","Income"],0);
+M(3,"One of the revenues:",["Machines","Accounts payable","Loans","Rent collected"],3);
+M(3,"Equipment is one of the:",A,0);M(3,"Long-term loans are:",A,1);M(3,"Salaries are:",A,3);
+M(3,"Cash is:",["Asset","Liability","Owner’s equity","Expense","Revenue"],0);
+M(3,"Financial accounting focuses on:",["All transactions","Financial transactions","Non-financial transactions","All the above"],1);
+M(3,"Among the objectives of financial accounting are the following:",["Determining the company’s profit or loss","Determining the assets and debts of the enterprise","Determining the owner’s equity of the entity","All the above"],3);
+M(3,"The entities make profits if:",["Revenues more than expenses","Revenue equals expenses","Expenses more than revenues","None of the above"],0);
+M(3,"Accounting is a:",["Science and profession","Science only","Profession only","Function only"],0);
+M(3,"Types of intangible assets:",["Patent","Goodwill (reputation)","Trade name","Trade mark (brand)","All the above"],4);
+M(3,"The terms used in the accounting are:",["Assets and liabilities","Revenues and expenses","Owner’s equity","All the above"],3);
+M(3,"Accounting provides useful information for:",["Management of the entity only","Employees of the entity","Owners of the entity only","All the above"],3);
+M(3,"All of the following are assets of the enterprise except:",["Lands","Buildings","Capital","Accounts receivable"],2);
+M(3,"All of the following are liabilities of the firm except:",["Short-term loans","Notes payable","Machines and equipment","Capital","Accounts payable"],2,"Your sheet marked “Machines and equipment”. (Capital is also not a liability — it is equity — but the slide’s intended exception is machinery.)");
+M(3,"Sales revenues of Meram’s entity in December 2022 are 100,000 EGP. Expenses represent 60% of these sales. The profit for this month equals:",["60,000 EGP","40,000 EGP","100,000 EGP","None of the above"],1,"100,000 − 60,000 = 40,000");
+M(3,"Goody’s stores: fixed assets 50,000 EGP, current assets 30,000 EGP, long-term liabilities 30,000 EGP, short-term liabilities 20,000 EGP. Owner’s equity equals:",["80,000 EGP","50,000 EGP","130,000 EGP","30,000 EGP"],3,"80,000 − 50,000 = 30,000");
+const C2="Dr. Ahmed Ibrahim started his business at the beginning of 2022 with capital of 50,000 EGP. Profit at year end: 30,000 EGP. Personal withdrawals: 10,000 EGP.\n";
+const E=["50,000 EGP","30,000 EGP","10,000 EGP","90,000 EGP","70,000 EGP"];
+[["beginning of 2022",0],["end of 2021",0],["end of 2022",4],["beginning of 2023",4]].forEach(x=>M(3,C2+"What is the value of equity at the "+x[0]+"?",E,x[1],"50,000 + 30,000 − 10,000 = 70,000 at end of 2022 / start of 2023."));
+M(3,"Short-term loans are:",["Assets","Liabilities","Expenses","Revenues"],1);
+M(3,"Wages are:",["Asset","Liability","Owner’s equity","Expense"],3);
+M(3,"Cost of goods sold is:",["Liability","Owner’s equity","Expense","Revenue"],2);
+M(3,"One of the assets:",["Computers","Accounts payable","Loans","Income"],0);
+M(3,"One of the liabilities:",["Machines","Accounts receivable","Accounts payable","Income"],2);
+M(3,"One of the owner’s equity:",["Income","Accounts payable","Loans","Buildings"],0,"Kept as on your sheet: income (profit) increases owner’s equity; the other options are a liability, a liability and an asset.");
+// Slides 60–62 T/F
+[["Financial statements are the major means of communicating accounting information to interested parties.",1],["Financial transactions are the major means of communicating accounting information to interested parties.",0],["Accounting information is used only by external users with a financial interest in a business enterprise.",0],["The statement of owner’s equity shows the changes of owner’s rights in the entity and the amount of these rights at the end of the accounting period.",1],["The income statement shows the entity’s economic resources (assets) and obligations (liabilities) at a certain date.",0],["The balance sheet shows the entity’s economic resources (assets) and obligations (liabilities) at a certain date.",1],["Creditors are external users for accounting reports.",1],["Customers and auditors are external users for accounting reports.",1],["Creditors are external users for financial statements.",1],
+["Financial accounting provides accounting information for external users through analysis of financial activities, recording and classifying them, summarizing them and preparing general-purpose financial reports to describe past financial activities of the entity.",1],["Managerial accounting provides accounting information for external users.",0],["Cost accounting provides accounting information for external users.",0],["Accounting is a system to provide qualitative information with financial nature about an economic entity to help in making sound economic decisions.",0],["Accounting is a system to provide quantitative information with financial nature about an economic entity to help in making sound economic decisions.",1],["Transactions that can be measured in dollars and cents are recorded in the financial accounting information system.",1],["Accounting communicates financial information about a business enterprise to both internal and external users.",1],
+["Management of a business enterprise is the major external user of information.",0],["Management of a business enterprise is the major internal user of information.",1],["Accounting deals with financial information only.",1],["Accounting deals with financial information.",1],["Accounting is an information system.",1],["Accounting communicates financial information about a business enterprise to external users only.",0],["Accounting communicates financial information about a business enterprise to internal users only.",0],["Management of a business enterprise is only the internal user of accounting information.",0],["Management of a business enterprise is the internal user of accounting information.",1,"The slide key shows False, but management is an internal user, so this is marked True. Double-check with your instructor."],["Management of a business enterprise is an internal user of accounting information.",1],["Accounting is useful for decision making.",1]].forEach(x=>T(4,x[0],x[1],x[2]));
+// Slides 63–67 MCQ
+[["Which of the following would not be considered internal users of accounting data for a company?",["The president of a company","The controller of a company","Creditors of a company","Salesmen of the company"],2],
+["Communication of economic events is the part of the accounting process that involves:",["Identifying economic events","Quantifying transactions into dollars and cents","Preparing accounting reports","Recording and classifying information"],2],
+["Internal users of accounting information include all of the following except:",["Company officers","Investors","Marketing managers","Production supervisors"],1],
+["Rules, methods, procedures, concepts, assumptions and principles used to prepare the financial statements:",["Budgeting","International accounting","Accounting principles","Financial accounting"],2],
+["……… shows the entity’s revenues, expenses and net result of the activities:",["Income statement","Statement of owner’s equity","Statement of financial position","Statement of cash flow"],0],
+["Accountants prepare a set of accounting reports mainly for external users, called:",["Single purpose financial statements","Cost statements","General purpose financial statements","None of the above"],2],
+["Basic assumption of accounting that requires activities of an entity be kept separate from the activities of its owner:",["Stand alone concept","Monetary unit assumption","Corporate form of ownership","Economic (accounting) entity assumption"],3],
+["Financial accounting provides economic and financial information for all of the following except:",["Creditors","Investors","Managers","Other external users"],2],
+["Which of the following events is not recorded in the accounting records?",["Equipment is purchased on account","An employee is terminated","A cash investment is made into the business","The owner withdraws cash for personal use"],1],
+["A set of accounting reports for external and internal users but mainly for the external:",["Internal statements","Bank statement","Financial statements","Profit statement"],2],
+["Statement which contains assets and obligations of the entity is called:",["Income statement","Balance sheet","Financial position statement","B and C"],3],
+["Statement which contains rights of owners is called:",["Income statement","Balance sheet","Cash statement","Owner’s equity statement"],3],
+["Assets and obligations must appear in the statement of:",["Owners’ equity","National accounts","Income statement","Financial position"],3],
+["A profit of an entity must appear in the statement of:",["Owners’ equity","National accounts","Income statement","Financial position"],2]].forEach(x=>M(5,x[0],x[1],x[2]));
+// Worked problems
+N(6,"Ahmed’s Stores (31 Dec 2022): revenues 300,000; advertising 20,000; rent 10,000; maintenance 30,000; salaries 20,000; utilities 15,000; insurance 35,000; other 40,000.\nWhat are the TOTAL EXPENSES (EGP)?",170000,"20+10+30+20+15+35+40 = 170,000");
+N(6,"Same company: what is the NET PROFIT (EGP)?",130000,"300,000 − 170,000 = 130,000");
+const AL="Ali’s library (31 Dec 2022): cash 10,000; A/R 50,000; buildings 60,000; land 100,000; A/P 20,000; notes payable 30,000; furniture 20,000; advanced expenses 5,000; accrued revenue 10,000; accrued expense 5,000; advance revenue 6,000.\n";
+N(6,AL+"Total value of the ASSETS (EGP)?",255000,"10+50+60+100+20+5+10 = 255,000");
+N(6,AL+"Total value of the LIABILITIES (EGP)?",61000,"20+30+5+6 = 61,000");
+N(6,AL+"Net assets (owner’s equity) (EGP)?",194000,"255,000 − 61,000 = 194,000");
+N(6,"Sally’s entity received 100,000 EGP in cash and paid 80,000 EGP. Net cash flow (EGP)?",20000,"Cash inflows − cash outflows = 100,000 − 80,000 = 20,000");
+N(6,"Dr. Merna’s Pharmacy (31 Dec 2022): beginning capital 50,000; capital increase 30,000; profit 15,000; withdrawals 5,000. Owner’s equity (EGP)?",90000,"50,000 + 30,000 + 15,000 − 5,000 = 90,000");
+// ===== CHAPTER 2 =====
+[["Assets are expected economic benefits owned by the entity as a result of past transactions.",1],["Land, buildings, equipment, furniture and cars are tangible fixed assets.",1],["Goodwill, copyrights, patents and trademarks are tangible fixed assets.",0],["Inventory, accounts receivable and notes receivable are current assets.",1],["Prepaid expenses and accrued revenues are current assets.",1],["Unearned (prepaid) revenues and expenses payable are liabilities.",1],["Owner’s equity is the remaining of assets after subtracting all liabilities.",1],["The difference between assets and obligations (liabilities and owner’s equity) is called net assets.",0,"Net assets = assets − liabilities = owner’s equity. The slide wording is loose; the safe reading is False."]].forEach(x=>T(7,x[0],x[1],x[2]));
+M(7,"Which of the following is a tangible fixed asset?",["Goodwill","Patents","Equipment","Accounts receivable"],2);
+M(7,"Which of the following is an intangible fixed asset?",["Land","Trademarks","Inventory","Cars"],1);
+M(7,"Which of the following is a current asset?",["Buildings","Copyrights","Accounts receivable","Furniture"],2);
+M(7,"Which of the following is a liability?",["Bonds payable","Inventory","Notes receivable","Land"],0);
+M(7,"The basic accounting equation is:",["Assets = Liabilities + Owner’s equity","Assets = Liabilities − Owner’s equity","Liabilities = Assets + Owner’s equity","Owner’s equity = Assets + Liabilities"],0);
+M(7,"Owner’s equity (capital) equals:",["Capital + investment + revenues − expenses − withdrawals","Capital − investment − revenues + expenses","Assets + liabilities","Revenues + expenses"],0);
+M(7,"Assumption: the business is separate from the personal activities of its owners.",["Going concern","Accounting entity","Stable monetary unit","Periodicity"],1);
+M(7,"Assumption: the entity will continue in business until it achieves its goals.",["Going concern","Accounting entity","Stable monetary unit","Matching"],0);
+M(7,"Assumption: the monetary unit has fixed purchasing power.",["Cost principle","Going concern","Stable monetary unit","Accounting entity"],2);
+M(7,"According to the cost principle, assets and liabilities are shown on the statement of financial position at their:",["Market value","Cost","Future value","Replacement value"],1);
+N(7,"XXX Company: cash 12,000; A/R 5,000; inventory 15,000; land 20,000; buildings 50,000. Liabilities: A/P 4,000; notes payable 1,000; loans 10,000. What is the owner’s equity (EGP)?",87000,"Assets 102,000 − liabilities 15,000 = 87,000");
+M(8,"Ahmed deposits EGP 50,000 in the bank as capital. The effect is:",["Assets ↑, owner’s equity ↑","Assets ↑, liabilities ↑","Assets ↓, owner’s equity ↓","Liabilities ↑, owner’s equity ↓"],0);
+M(8,"Ahmed gets a bank loan of EGP 25,000 in cash. The effect is:",["Assets ↑, liabilities ↑","Assets ↑, owner’s equity ↑","Liabilities ↑, owner’s equity ↓","No effect"],0);
+M(8,"Ahmed buys a building for EGP 30,000 cash. The effect is:",["Assets ↑, liabilities ↑","One asset ↑ and another asset ↓ by the same amount","Assets ↓, owner’s equity ↓","Assets ↑, owner’s equity ↑"],1);
+M(8,"Ahmed buys a computer for EGP 5,000 on credit. The effect is:",["Assets ↑, accounts payable ↑","Assets ↑, capital ↑","Cash ↓, computers ↑","Assets ↓, liabilities ↓"],0);
+N(8,"Ahmed buys office supplies for EGP 3,000, pays EGP 1,000 cash and signs a note payable for the rest. Notes payable increases by (EGP):",2000,"3,000 − 1,000 = 2,000");
+M(8,"The company sells half of the building at cost (EGP 15,000) for cash. The effect is:",["Cash ↑, building ↓","Cash ↓, building ↑","Cash ↑, capital ↑","Building ↓, liabilities ↓"],0);
+M(8,"The company sells computers at cost on credit. The effect is:",["Cash ↑, computers ↓","Accounts receivable ↑, computers ↓","Accounts receivable ↑, revenue ↑","Cash ↓, A/R ↑"],1);
+M(8,"Repaying part of a bank loan in cash:",["Cash ↓, loan payable ↓","Cash ↑, loan payable ↓","Cash ↓, capital ↓","Cash ↓, A/P ↑"],0);
+M(8,"Collecting accounts receivable from customers:",["Cash ↑, A/R ↓ (total assets unchanged)","Cash ↑, revenue ↑","Cash ↑, liabilities ↑","Cash ↓, A/R ↑"],0);
+M(8,"The owner draws EGP 5,000 cash for personal use:",["Cash ↓, owner’s equity ↓","Cash ↓, liabilities ↓","Cash ↑, owner’s equity ↓","Cash ↓, expenses ↓"],0);
+M(8,"Services provided to a customer on account (credit):",["A/R ↑, revenues ↑","Cash ↑, revenues ↑","A/R ↑, liabilities ↑","A/R ↓, revenues ↑"],0);
+M(8,"Rent expense incurred but not paid in cash:",["Expense ↑ (equity ↓), rent payable ↑","Cash ↓, expense ↑","Assets ↑, liabilities ↑","Revenue ↑, rent payable ↑"],0);
+N(8,"Ahmed’s cash after transaction 5 (capital 50,000; loan 25,000; building −30,000; supplies −1,000) equals (EGP):",44000,"50,000 + 25,000 − 30,000 − 1,000 = 44,000");
+N(8,"Ahmed’s cash after transaction 10 (adds sale of half of building 15,000; loan repayment −10,000; A/R collected 5,000; extra capital 20,000) equals (EGP):",74000,"44,000 + 15,000 − 10,000 + 5,000 + 20,000 = 74,000");
+N(8,"After the owner withdraws 10,000 (tx 11) and draws 5,000 (tx 12), Ahmed’s capital equals (EGP):",55000,"70,000 − 10,000 − 5,000 = 55,000");
+N(8,"After transactions 13–18 (services 7,000 cash; 5,000 on credit then collected; salaries −8,000; rent 2,000 incurred then paid), Ahmed’s cash equals (EGP):",61000,"59,000 + 7,000 + 5,000 − 8,000 − 2,000 = 61,000");
+M(9,"Net income (loss) =",["Revenues − Expenses","Revenues + Expenses","Expenses − Revenues","Assets − Liabilities"],0);
+M(9,"If an asset sale produces an increase in equity, this increase is called a:",["Revenue","Gain","Loss","Expense"],1);
+M(9,"If an asset sale produces a decrease in equity, this decrease is called a:",["Gain","Revenue","Loss","Capital"],2);
+M(9,"Which assumption divides the life of the business into equal periods (normally a year)?",["Periodicity","Going concern","Cost principle","Stable monetary unit"],0);
+M(9,"Which principle says revenues are recorded when realized or realizable (goods sold or services provided)?",["Matching","Revenue recognition","Cost","Periodicity"],1);
+M(9,"Which principle says revenues of the period should be matched with the expenses that produced them?",["Matching","Revenue recognition","Going concern","Accounting entity"],0);
+T(9,"Under the accrual basis, revenues and expenses are recorded when earned/incurred, regardless of collection or payment.",1);
+T(9,"Under the cash basis, revenues are recorded when collected and expenses when paid.",1);
+T(9,"Revenues increase assets (cash or A/R) and increase owner’s equity.",1);
+T(9,"Expenses decrease assets or increase liabilities, and decrease owner’s equity.",1);
+T(9,"Revenues are earned capital, not invested capital.",1);
+T(9,"In the report format of the income statement, expenses and losses are listed first, then revenues are added.",0,"Revenues and gains are listed first, then expenses and losses are subtracted.");
+N(9,"Income statement: revenues & gains total 92,000; expenses & losses total 56,000. Net income (EGP)?",36000,"92,000 − 56,000 = 36,000");
+N(9,"Fees and commissions 80,000 + investment revenues 2,000 + gains on sale of assets 10,000 = total revenues and gains (EGP)?",92000,"80,000 + 2,000 + 10,000");
+const SL="Sally’s supermarket (April 2018) starts with 80,000 cash capital. Transactions: truck 35,000 cash; furniture 5,000 credit; services 6,000 cash; bank loan 10,000 cash; rent 2,000 cash; paid 2,000 on furniture; extra capital 20,000 cash; services 3,000 credit; repaid half of loan; sold furniture (cost 1,000) for 1,000 cash; expenses 500 cash; collected 1,000 from customers; services 4,000 (1,500 cash, rest credit).\n";
+[["Final CASH balance (EGP)?",75000,"80,000−35,000+6,000+10,000−2,000−2,000+20,000−5,000+1,000−500+1,000+1,500 = 75,000"],["Final furniture balance (EGP)?",4000,"5,000 − 1,000 sold = 4,000"],["Final accounts receivable balance (EGP)?",4500,"3,000 − 1,000 + 2,500 = 4,500"],["Final accounts payable balance (EGP)?",3000,"5,000 − 2,000 = 3,000"],["Final loan payable balance (EGP)?",5000,"10,000 − 5,000 = 5,000"],["Net revenue/expense (profit) for April (EGP)?",10500,"6,000 − 2,000 + 3,000 − 500 + 4,000 = 10,500"],["Total ASSETS (EGP)?",118500,"75,000 + 35,000 + 4,000 + 4,500 = 118,500"],["Total liabilities + owner’s equity (EGP)? (Sally’s capital 100,000)",118500,"3,000 + 5,000 + 10,500 + 100,000 = 118,500 — the equation balances"]].forEach(x=>N(10,SL+x[0],x[1],x[2]));
+Q.forEach((q,i)=>q.id=i);
+let st={},ord=Q.map(q=>q.id),sec="all",$=id=>document.getElementById(id);
+const inst=()=>$("inst").checked;
+const ok=q=>{const s=st[q.id];return s&&s.v!==undefined&&(q.num?Number(String(s.v).replace(/[, ]/g,""))===q.a:s.v===q.a)};
+function tabs(){const t=[["all","All ("+Q.length+")"],["c1","Chapter 1 ("+Q.filter(q=>q.s<7).length+")"],["c2","Chapter 2 ("+Q.filter(q=>q.s>=7).length+")"]].concat(SEC.map((n,i)=>[i,n+" ("+Q.filter(q=>q.s===i).length+")"]),[["tf","True / False Only ("+Q.filter(q=>q.tf).length+")"]]);
+$("tabs").innerHTML="";t.forEach(([k,l])=>{const b=document.createElement("button");b.className="tab"+(k===sec?" on":"");b.textContent=l;b.onclick=()=>{sec=k;tabs();draw()};$("tabs").appendChild(b)})}
+function draw(){const L=$("list"),s=$("q").value.toLowerCase(),f=$("show").value;L.innerHTML="";let n=0;
+ord.forEach(id=>{const q=Q[id],S=st[id]||{};
+if(sec==="tf"?!q.tf:sec==="c1"?q.s>6:sec==="c2"?q.s<7:(sec!=="all"&&q.s!==sec))return;
+if(s&&!(q.t+(q.o||[]).join(" ")).toLowerCase().includes(s))return;
+if(f==="un"&&S.v!==undefined)return;if(f==="ok"&&!(S.done&&ok(q)))return;if(f==="no"&&!(S.done&&!ok(q)))return;
+n++;const d=document.createElement("div");d.className="q"+(S.done?(ok(q)?" ok":" no"):"");
+d.innerHTML='<div class="tag">#'+(id+1)+" · "+SEC[q.s]+'</div><div class="qt"></div>';d.querySelector(".qt").textContent=q.t;
+if(q.num){const w=document.createElement("div");w.className="num";const i=document.createElement("input");i.type="text";i.inputMode="numeric";i.placeholder="Your answer";i.value=S.v??"";i.disabled=!!S.done;const b=document.createElement("button");b.className="pri";b.textContent="Check";b.disabled=!!S.done;
+b.onclick=()=>{if(i.value.trim()===""){return}st[id]={v:i.value,done:true};upd()};w.append(i,b);d.appendChild(w)}
+else q.o.forEach((o,k)=>{const b=document.createElement("button");b.className="o";b.textContent=String.fromCharCode(65+k)+". "+o;
+if(S.done){b.disabled=true;if(k===q.a)b.classList.add("right");else if(k===S.v)b.classList.add("wrong")}else if(S.v===k)b.classList.add("sel");
+b.onclick=()=>{st[id]={v:k,done:inst()};upd()};d.appendChild(b)});
+if(S.done){const x=document.createElement("div");x.className="n";x.textContent=(ok(q)?"✓ Correct. ":"✗ Incorrect. ")+(q.num?"Answer: "+q.a.toLocaleString("en-US")+" EGP. ":"")+(q.n||"");d.appendChild(x)}
+L.appendChild(d)});
+if(!n)L.innerHTML='<div class="emp">No questions match.</div>';
+const a=Q.filter(q=>st[q.id]&&st[q.id].v!==undefined).length,dn=Q.filter(q=>st[q.id]&&st[q.id].done),c=dn.filter(ok).length;
+$("cnt").textContent=Q.length+" Questions";$("ans").textContent="Answered: "+a+" / "+Q.length;$("scr").textContent="Score: "+c+" / "+dn.length+" ("+(dn.length?Math.round(100*c/dn.length):0)+"%)"}
+function upd(){const y=window.scrollY;draw();window.scrollTo(0,y)}
+$("q").oninput=draw;$("show").onchange=draw;
+$("shuf").onclick=()=>{for(let i=ord.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ord[i],ord[j]]=[ord[j],ord[i]]}draw()};
+$("grade").onclick=()=>{Q.forEach(q=>{if(st[q.id]&&st[q.id].v!==undefined)st[q.id].done=true});draw()};
+$("rst").onclick=()=>{st={};ord=Q.map(q=>q.id);draw()};
+tabs();draw();
+</script></body></html>
